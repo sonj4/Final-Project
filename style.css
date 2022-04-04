@@ -16,7 +16,16 @@ box-sizing: border-box;
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: rgba(224, 224, 224, 0.2);
+    background-color: rgba(224, 224, 224,0.5);
+  /*   position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3; */
+}
+
+
+.header > i {
+    display: none;
 }
 
 .logo {
@@ -27,6 +36,7 @@ box-sizing: border-box;
 .navBar{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-right: 2rem;
 }
 
@@ -157,7 +167,7 @@ a{
     margin-left: auto;
     margin-right: auto; 
     padding: 1rem;
-     margin-left: 1rem; 
+    margin-left: 1rem; 
 }
 .sliderImg img {
     width: 100%;
@@ -196,6 +206,8 @@ a{
     overflow: hidden;
     gap: 1rem;
     align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .bestSidebar{
@@ -207,6 +219,10 @@ a{
     align-items: center;
     box-shadow: #ce587a;
     padding: 1rem;
+}
+
+.fbPage {
+    margin: 3rem;
 }
 
 .firstBest, .secondBest{
@@ -303,4 +319,64 @@ footer {
 .links a, .fa-brands{
     
     color: white;
+}
+
+
+.modalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.modalWindow {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px gray;
+    width: 600px;
+    height: 600px;
+    max-width: 100%;
+}
+
+.fa-close{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    color: white;
+}
+
+
+.hide {
+    display: none;
+}
+
+#hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+@media(max-width:1140px) {
+    .navBar{
+        display: none;
+    }
+
+    .header > i {
+        display: block; 
+        position: absolute;
+        top: 50px;
+        right: 100px;
+    }
 }

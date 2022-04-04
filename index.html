@@ -11,56 +11,63 @@
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&family=Mulish:wght@200;300;400&display=swap" rel="stylesheet">
     <title>Home</title>
 </head>
-<body class="container">
+<body class="container" >
     <header class="header">
+
         <div class="logo">
           <a href="https://www.artic.edu/"><img src="1200px-Art_Institute_of_Chicago_logo.svg.png" alt="logo" class="logo"></a>  
         </div>
         <nav class="navBar">
-            <a href="index.html"> Home </a>
-            <a href="" class="dropdownHolder">List</a>
-            <div class="dropdown">
-                <a href="">dsa</a>
-                <a href="">dsa</a>
-                <a href="">dsa</a>
+            <i class="fa-solid fa-xmark fa-2xl"></i>
+            <div class="navBarDiv">
+                <a href="index.html"> Home </a>
+                <a href="" class="dropdownHolder">List</a>
+                <a href="">Contact Us</a>
+                <a href="">About Us</a>
+                <a href="">Gallery</a>
+                
             </div>
-            <a href="">Contact Us</a>
-            <a href="">About Us</a>
-            <a href="">Gallery</a>
+            <i class="fa-solid fa-bars fa-2xl menuNavBar"></i>
         </nav>
-        <div class="buttonsNav">
+        
+        <!-- <div class="buttonsNav">
             <button class="btn" role="button">Log In</button>
             <button class="btn" role="button">Sign Up</button>
-        </div>
+        </div> -->
     </header>
 
     <div class="main">
         <div class="slider">
-            <i class="fa-solid fa-caret-left fa-2xl"></i>
+            <i class="fa-solid fa-caret-left fa-2xl sliderLeft"></i>
             
-            <div class="sliderImg">
-                <p>TITLE</p>
+            <div class="sliderImg hide">
+                <p>1</p>
                 <img src="default.jpg" alt="">
                 <button class="btn readMore">READ MORE</button>
             </div>
             
-            
-            <div class="sliderImg">
-                <p>TITLE</p>
+            <div class="sliderImg hide">
+                <p>2</p>
                 <img src="default (1).jpg" alt="">
                 <button class="btn readMore">READ MORE</button>
             </div>
             
-            
-            <div class="sliderImg">
-                <p>TITLE</p>
-                <img src="default (2).jpg" alt="">
+            <div class="sliderImg hide">
+                <p>3</p>
+                <img src="Dali.avif" alt="">
                 <button class="btn readMore">READ MORE</button>
             </div>
-            
-            
-             <i class="fa-solid fa-caret-right fa-2xl"></i> 
-    
+            <div class="sliderImg hide">
+                <p>4</p>
+                <img src="default (3).jpg" alt="">
+                <button class="btn readMore">READ MORE</button>
+            </div>
+            <div class="sliderImg hide">
+                <p>5</p>
+                <img src="G28098-int-WEB-HERO-CROP.avif" alt="">
+                <button class="btn readMore">READ MORE</button>
+            </div>
+            <i class="fa-solid fa-caret-right fa-2xl sliderRight"></i> 
         </div>
     
         <div class="bestSidebar">
@@ -119,10 +126,10 @@
                 <button class="btn loadMore">Load More</button>
             </div>
         </div>
+
+        
     
-        <div class="facebookFeedSidebar">
-            Facebook Feed
-        </div>     
+        <iframe class="fbPage" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArt-Institute-Of-Chicago-109600978377296&tabs=timeline&width=300&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="300" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
 
     <footer>
@@ -142,6 +149,19 @@
             <i class="fa-brands fa-pinterest fa-xl"></i>
         </div>
     </footer>
+
+    <div class="modalContainer hide">
+        <button class="closeModal"><i class="fa-solid fa-xmark fa-close fa-2xl"></i></button>
+        <div class="modalWindow">
+            <p class="title">Title</p>
+            <img src="" alt="">
+            <p class="info1">a</p>
+            <p class="info2">a</p>
+            <p class="info3">a</p>
+            <p class="info4">a</p>
+        </div>
+        
+    </div>
 <script src="script.js"></script>
 </body>
 </html>
