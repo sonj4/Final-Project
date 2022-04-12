@@ -28,7 +28,6 @@ leftSlider.addEventListener('click', slideLeft);
 document.querySelector('.sliderWrapper').addEventListener("mouseenter",bindKeyDownListener);
 document.querySelector('.sliderWrapper').addEventListener("mouseout", bindKeyDownListenerBlock);
 document.querySelector('.activateDropdown').addEventListener('mouseenter',dropdownMenu);
-
 document.querySelector('.dropdownContent').addEventListener('mouseenter',dropdownMenu);
 document.querySelector('.dropdownContent').addEventListener('mouseout',dropdownMenuHide);
 
@@ -53,7 +52,7 @@ function dropdownMenuHide(){
     let menu =  document.querySelector('.dropdownContent');
     menu.style.display = 'none';
     console.log('izasla')
- }
+}
 
 
 function handleKeyboardNav(e) {
@@ -74,7 +73,6 @@ function bindKeyDownListenerBlock(){
     isOnDiv = false;
     
 }
-
 
 async function sidebarLoad(){
     let data = await getData('https://api.jikan.moe/v4/top/characters');
@@ -101,8 +99,6 @@ async function sidebarLoad(){
     }
 }
 
-
-
 function modalSidebar(e){
     let name = e.currentTarget.prop.name;
     let imgSrc = e.currentTarget.prop.image;
@@ -116,6 +112,7 @@ function modalSidebar(e){
                     `
     showModalWindow();
 }
+
 function showModalWindow(){
     modal.classList.remove('hide');
     document.querySelector('.container').setAttribute('scroll','no');
@@ -129,6 +126,7 @@ function closeModalWindow(){
     document.querySelector('.container').removeAttribute('scroll','no');
     document.querySelector('.container').style.overflow = '';
 }
+
 function showModalWindowFact(e){
     let name = e.currentTarget.prop.name;
     let imgSrc = e.currentTarget.prop.image;
@@ -266,40 +264,42 @@ function addHide(el){
 }
 
 function slideRight(){
-    let limitRight = 0;
-    if (viewport_width >= 1140) limitRight = 3;
-    else if (viewport_width >= 768 && viewport_width < 1140) limitRight = 2;
-    else if (viewport_width < 768) limitRight = 1;
+    let temp = 2;
+    viewport_width = document.documentElement.clientWidth;
+    if (viewport_width >= 1140) temp = 2;
+    else if (viewport_width >= 768 && viewport_width < 1140) temp = 1;
+    else if (viewport_width < 768 )temp = 0;
     for (let i = 0; i< arraySlides.length; i++){
         slides[i].classList.add('hide');
     }
     let ind = index+1;
-    if (ind === arraySlides.length - 2) ind = 0;
-    for (let i = ind; i<ind+3; i++){
+    if (ind === arraySlides.length - temp) ind = 0;
+    for (let i = ind; i<ind+temp+1; i++){
         if(slides[i].classList.contains('hide')) slides[i].classList.remove('hide')
     }
-    if (index + 1 === arraySlides.length-2) index = 0;
+    if (index + 1 === arraySlides.length-temp) index = 0;
     else index++;
 }
 
 function slideLeft(){
+    let temp = 2;
+    viewport_width = document.documentElement.clientWidth;
+    if (viewport_width >= 1140) temp = 2;
+    else if (viewport_width >= 768 && viewport_width < 1140) temp = 1;
+    else if (viewport_width < 768 )temp = 0;
     for (let i = 0; i< arraySlides.length; i++){
         slides[i].classList.add('hide');
     }
     let ind = index-1;
     if (index === 0) {
-        ind = arraySlides.length-1;
-        index = arraySlides.length-1;
+        ind = arraySlides.length-temp-1;
     }
-    for (let i = ind; i>ind-3; i--){
+    for (let i = ind; i<ind+temp+1; i++){
         if(slides[i].classList.contains('hide')) slides[i].classList.remove('hide');
     }
-    if (index - 1 === 2) index = 0;
-    else index--;
+    index = ind;
 }
 
-/* 
 setInterval(() => {
     slideRight()
 }, 3000);   
- */
