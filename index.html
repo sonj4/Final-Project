@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/3ea21d8be6.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&family=Mulish:wght@200;300;400&display=swap" rel="stylesheet">
     <title>Home</title>
 </head>
@@ -23,7 +27,12 @@
                     <li class="aboutpage"><a href="">ABOUT US</a></li>
                     <li class="contactPage"><a href="">CONTACT US</a></li>
                     <li class="mangaPage"><a href="index.html">MANGA</a></li>
-                    <li class="listPage"><a href="">LIST</a></li>
+                    <li class="listPage" ><a href="" class="activateDropdown">LIST</a></li>
+                    <div class="animate__fadeInDown dropdownContent ">
+                        <a class='dropdownLink' href="#">Link 1</a>
+                        <a class='dropdownLink' href="#">Link 2</a>
+                        <a class='dropdownLink' href="#">Link 3</a>
+                        </div>
                 </ul>
             </div>
             <i class="fa fa-bars barMenu"></i>
@@ -43,9 +52,6 @@
                 <button class="btn loadMore">Load More</button>
             </div>
         </div>
-
-        
-    
         <iframe class="fbPage" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArt-Institute-Of-Chicago-109600978377296&tabs=timeline&width=300&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="300" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
 
@@ -58,7 +64,8 @@
             <a href="index.html">ABOUT US</a>
             <a href="index.html">CONTACT US</a>
             <a href="index.html">MANGA</a>
-            <a href="index.html">LIST</a>
+            <a href="index.html" >LIST</a>
+            
         </div>
         <div class="contact">
             <i class="fa-brands fa-instagram fa-xl"></i>
@@ -70,16 +77,8 @@
 
     <div class="modalContainer hide">
         <button class="closeModal"><i class="fa-solid fa-xmark fa-close fa-2xl"></i></button>
-        <div class="modalWindow">
-            <!-- <p class="title">Title</p>
-            <img src="" alt="">
-            <p class="info1">a</p>
-            <p class="info2">a</p>
-            <p class="info3">a</p>
-            <p class="info4">a</p> -->
-        </div>
-        
+        <div class="modalWindow"></div>
     </div>
-<script src="script.js"></script>
+<script src="src/script.js"></script>
 </body>
 </html>

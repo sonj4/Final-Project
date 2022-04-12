@@ -9,7 +9,10 @@ let arraySlides;
 let animeData;
 let viewport_width = document.documentElement.clientWidth;
 let index = 0;
-
+let isOnDiv;
+let limit;
+window.addEventListener('resize', setLimit);
+window.addEventListener('DOMContentLoaded', setLimit);
 document.querySelector('.homePage').classList.add('activePage')
 
 //EVENTS
@@ -22,6 +25,56 @@ loadMoreButton.addEventListener('click', loadMoreFunction);
 closeModalButton.addEventListener('click',closeModalWindow);
 rightSlider.addEventListener('click', slideRight);
 leftSlider.addEventListener('click', slideLeft);
+document.querySelector('.sliderWrapper').addEventListener("mouseenter",bindKeyDownListener);
+document.querySelector('.sliderWrapper').addEventListener("mouseout", bindKeyDownListenerBlock);
+document.querySelector('.activateDropdown').addEventListener('mouseenter',dropdownMenu);
+
+document.querySelector('.dropdownContent').addEventListener('mouseenter',dropdownMenu);
+document.querySelector('.dropdownContent').addEventListener('mouseout',dropdownMenuHide);
+
+const links = document.getElementsByClassName('.dropdownLink');
+Array.from(links).forEach(el => el.addEventListener('mouseenter',dropdownMenu))
+
+function setLimit(){
+    viewport_width = document.documentElement.clientWidth;
+    if (viewport_width >= 1140) limit = 3;
+    else if (viewport_width >= 768 && viewport_width < 1140) limit = 2;
+    else if (viewport_width < 768 )limit = 1;
+    console.log(limit)
+}
+
+
+function dropdownMenu(){
+   let menu =  document.querySelector('.dropdownContent');
+   menu.style.display = 'block';
+}
+
+function dropdownMenuHide(){
+    let menu =  document.querySelector('.dropdownContent');
+    menu.style.display = 'none';
+    console.log('izasla')
+ }
+
+
+function handleKeyboardNav(e) {
+    if (!e) e = window.event;
+    var kc = e.keyCode;
+    if (kc == 37) slideLeft();
+    if (kc == 39) slideRight();  
+}
+
+function bindKeyDownListener() {
+    isOnDiv = true;
+    if (isOnDiv) document.addEventListener("keydown", handleKeyboardNav);
+     if (document.attachEvent)
+        el.attachEvent("onkeydown", handleKeyboardNav); 
+}
+
+function bindKeyDownListenerBlock(){
+    isOnDiv = false;
+    
+}
+
 
 async function sidebarLoad(){
     let data = await getData('https://api.jikan.moe/v4/top/characters');
@@ -31,6 +84,7 @@ async function sidebarLoad(){
     const title = document.createElement('p');
     title.innerHTML = 'TOP RATED CHARACTERS'
     bestSidebar.appendChild(title)
+    
     for (let i = 0; i < 3; i++){
         const div = document.createElement('div');
         div.classList.add('firstBest');
@@ -92,11 +146,7 @@ function showModalWindowFact(e){
 }
 
 function loadMoreFunction(){
-    let limit = 0;
     let counter = 0;
-    if (viewport_width >= 1140) limit = 3;
-    else if (viewport_width >= 768 && viewport_width < 1140) limit = 2;
-    else if (viewport_width < 768 )limit = 1;
     const grid = document.getElementsByClassName('gridElement');
     for (let i = 0; i<grid.length; i++){
         if (grid[i].classList.contains('hide') && counter < limit){
@@ -177,17 +227,16 @@ async function renderSlides() {
     let data = ani.data;
     data = data.sort((a, b) => a.popularity < b.popularity ? -1 : 1);
     animeData = ani.data;
-   // console.log(animeData)
-   // console.log(data)
     let slider = document.querySelector('.slider');
     let counter = 0;
     let limit = 0;
-    if (viewport_width <= 768) limit = 1;
-    else limit = 3;
+    if (viewport_width >= 1140) limit = 3;
+    else if (viewport_width >= 768 && viewport_width < 1140) limit = 2;
+    else if (viewport_width < 768) limit = 1;
     data.forEach(el => {
         const div = document.createElement("div");
         div.classList.add("sliderImg");
-        if (counter >= 3) div.classList.add('hide');
+        if (counter >= limit) div.classList.add('hide');
         const p = document.createElement('p');
         p.innerHTML = el.title;
         const img= document.createElement('img');
@@ -217,6 +266,10 @@ function addHide(el){
 }
 
 function slideRight(){
+    let limitRight = 0;
+    if (viewport_width >= 1140) limitRight = 3;
+    else if (viewport_width >= 768 && viewport_width < 1140) limitRight = 2;
+    else if (viewport_width < 768) limitRight = 1;
     for (let i = 0; i< arraySlides.length; i++){
         slides[i].classList.add('hide');
     }
@@ -239,13 +292,14 @@ function slideLeft(){
         index = arraySlides.length-1;
     }
     for (let i = ind; i>ind-3; i--){
-        if(slides[i].classList.contains('hide')) slides[i].classList.remove('hide')
+        if(slides[i].classList.contains('hide')) slides[i].classList.remove('hide');
     }
     if (index - 1 === 2) index = 0;
     else index--;
 }
 
-
+/* 
 setInterval(() => {
     slideRight()
 }, 3000);   
+ */
