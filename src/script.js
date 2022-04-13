@@ -27,12 +27,6 @@ rightSlider.addEventListener('click', slideRight);
 leftSlider.addEventListener('click', slideLeft);
 document.querySelector('.sliderWrapper').addEventListener("mouseenter",bindKeyDownListener);
 document.querySelector('.sliderWrapper').addEventListener("mouseout", bindKeyDownListenerBlock);
-document.querySelector('.activateDropdown').addEventListener('mouseenter',dropdownMenu);
-document.querySelector('.dropdownContent').addEventListener('mouseenter',dropdownMenu);
-document.querySelector('.dropdownContent').addEventListener('mouseout',dropdownMenuHide);
-
-const links = document.getElementsByClassName('.dropdownLink');
-Array.from(links).forEach(el => el.addEventListener('mouseenter',dropdownMenu))
 
 function setLimit(){
     viewport_width = document.documentElement.clientWidth;

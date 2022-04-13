@@ -81,34 +81,63 @@ nav .fa{
     display: none;
 }
 
+.listPage {
+    position: relative;
+}
+
+.dropBtn {
+    background-color:  #2f51a3;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
 .dropdownContent {
     display: none;
     position: absolute;
-    right: 5px;
-    background-color: #f9f9f9;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 10;
-    animation: bounceIn;
+    z-index: 1;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+    top: 100%
 }
 
-
 .dropdownContent a {
-    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-.dropdownContent a:hover {background-color: #f1f1f1}
-.main {
-    display: grid;
-    grid-template-columns: 80vw 20vw;
-    overflow: hidden;
-    gap: 1rem;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    place-items: center;
+}
+
+.dropdownContent a:hover {background-color: rgba(0, 0, 0, 0.8);}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+.dropdown:hover .dropBtn {
+    background-color:  #2f51a3;
 }
 
 
@@ -189,7 +218,7 @@ nav .fa{
     position: relative;
     width: 500px;
     height: auto;
-    transition: ease 0.3s;
+    
 }
 .sliderImg img {
     width: 100%;
@@ -198,11 +227,9 @@ nav .fa{
     opacity: 0.8;
     padding: 1rem;
     position: relative;
-    
 }
 
 .sliderImg:hover{
-    opacity: 1;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -293,6 +320,17 @@ nav .fa{
     cursor: pointer;
     transition: 0.3s;
 }
+.main {
+    display: grid;
+    grid-template-columns: 80vw 20vw;
+    overflow: hidden;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    place-items: center;
+}
+
 
 .firstBest img:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -338,10 +376,13 @@ nav .fa{
     cursor: pointer;
     transition: 0.2s;
 }
+.links a{
+    text-decoration: none;
+}
+
 
 .activePage a{
-    text-shadow: 0px 2px 8px #000000;
-    border-bottom: 2px solid white;
+    text-shadow: 0px 2px 8px #ffffff;
 }
 .gridElement img:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -402,21 +443,6 @@ nav .fa{
 }
 
 footer {
-    /* display: flex;
-    justify-content: space-evenly;
-    background-color: rgb(182, 2, 53);
-    min-height: 30vh;
-    max-height: 50vh;
- */
-    /* display: flex;
-    flex-direction: row;
-    background-color: rgb(182, 2, 53);
-    margin-top:1rem; 
-    justify-content: space-between;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    width: 100%;
-    height: 100%; */
     display: grid;
     grid-template-columns: repeat(3,1fr);
     width: 100%;
@@ -557,6 +583,26 @@ footer {
     }
     .navLinks ul{
         padding: 30px;
+    }
+    .dropBtn {
+        color: white;
+        background-color: transparent;
+        padding: 0;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    .dropdownContent {
+        display: none;
+        position: absolute;
+        right: -60px;
+        background-color: rgba(0, 0, 0, 0.5);
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        animation: growDown 300ms ease-in-out forwards;
+        transform-origin: top center;
+        top: 100%
     }
 }
 

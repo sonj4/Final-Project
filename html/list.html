@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/list.css">
+    <script src="https://kit.fontawesome.com/3ea21d8be6.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&family=Mulish:wght@200;300;400&display=swap" rel="stylesheet">
+    <title>List</title>
+</head>
+<body>
+    <header class="header">
+        <img src="../images/myanimelist-logo.webp" alt="">
+        <nav class="navBar">
+           <a href="index.html">  </a>
+            <div class="navLinks">
+               <i class="fa fa-times closeBarMenu"></i>
+               <ul class="unList">
+                <li class="navLink homePage"><a href="../index.html">HOME</a></li>
+                <li class="navLink aboutpage"><a href="">ABOUT US</a></li>
+                <li class="navLink contactPage"><a href="">CONTACT US</a></li>
+                <li class="navLink mangaPage"><a href="">MANGA</a></li>
+                <li class="navLink listPage">
+                    <div class="dropdown">
+                        <a  href="#" class="dropBtn">LIST</a>
+                        <div class="dropdownContent">
+                          <a class="dropdownLink" href="#">Link 1</a>
+                          <a class="dropdownLink" href="#">Link 2</a>
+                          <a class="dropdownLink" href="#">Link 3</a>
+                        </div>
+                      </div>
+                </li>
+            </ul>
+            </div>
+            <i class="fa fa-bars barMenu"></i>
+        </nav>
+    </header>
+
+    <div class="searchContainer">
+        <input type="text" placeholder="Type Here" class="inputSearch">
+        <button class="searchBtn">Search</button>
+    </div>
+
+    <div class="filterContainer">
+        <div class="filters">
+            <div class="inputs">
+                <input type="checkbox" name="checkbox" id="filter1">
+                <label for="checkbox">Filter 1</label>
+                <input type="checkbox" name="checkbox" id="filter2">
+                <label for="checkbox">Filter 2</label>
+                <input type="checkbox" name="checkbox" id="filter3">
+                <label for="checkbox">Filter 3</label>
+            </div>
+            <p>Check Filters</p>
+        </div>
+        <div class="rangeSlider">
+            <p class="value min">1</p>
+            <input type="range" min="1" max="10" value="1" class="slider" id="myRange">
+            <p class="value max">10</p>
+            <p class="rates">Rates</p>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="gridElement">
+            <img src="" alt="">
+            <div class="infoWrapper">
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+            </div>
+        </div>
+        <div class="gridElement">
+            <img src="" alt="">
+            <div class="infoWrapper">
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+            </div>
+        </div>
+        <div class="gridElement">
+            <img src="" alt="">
+            <div class="infoWrapper">
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+            </div>
+        </div>
+        <div class="gridElement">
+            <img src="" alt="">
+            <div class="infoWrapper">
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+            </div>
+        </div>
+    </div>
+    <div class="mainControls">
+        <p>prev</p>
+        <p>next</p>
+    </div>
+
+    <footer>
+        <div class="logo">
+            <p>MY ANIME LIST</p>
+          </div>
+        <div class="links">
+            <a href="../index.html">HOME</a>
+            <a href="index.html">ABOUT US</a>
+            <a href="index.html">CONTACT US</a>
+            <a href="index.html">MANGA</a>
+            <a href="index.html" >LIST</a>
+            
+        </div>
+        <div class="contact">
+            <i class="fa-brands fa-instagram fa-xl"></i>
+            <i class="fa-brands fa-facebook fa-xl"></i>
+            <i class="fa-brands fa-twitter fa-xl" ></i>
+            <i class="fa-brands fa-pinterest fa-xl"></i>
+        </div>
+    </footer>
+<script src="../src/list.js"></script>
+</body>
+</html>

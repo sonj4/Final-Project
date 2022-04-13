@@ -17,22 +17,27 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 </head>
 <body class="container" >
     <header class="header">
-        <img src="myanimelist-logo.webp" alt="">
+        <img src="images/myanimelist-logo.webp" alt="">
         <nav class="navBar">
            <a href="index.html">  </a>
             <div class="navLinks">
                <i class="fa fa-times closeBarMenu"></i>
                 <ul class="unList">
-                    <li class="homePage"><a href="">HOME</a></li>
-                    <li class="aboutpage"><a href="">ABOUT US</a></li>
-                    <li class="contactPage"><a href="">CONTACT US</a></li>
-                    <li class="mangaPage"><a href="index.html">MANGA</a></li>
-                    <li class="listPage" ><a href="" class="activateDropdown">LIST</a></li>
-                    <div class="animate__fadeInDown dropdownContent ">
-                        <a class='dropdownLink' href="#">Link 1</a>
-                        <a class='dropdownLink' href="#">Link 2</a>
-                        <a class='dropdownLink' href="#">Link 3</a>
-                        </div>
+                    <li class="navLink homePage"><a href="">HOME</a></li>
+                    <li class="navLink aboutpage"><a href="">ABOUT US</a></li>
+                    <li class="navLink contactPage"><a href="">CONTACT US</a></li>
+                    <li class="navLink mangaPage"><a href="index.html">MANGA</a></li>
+                    <li class="navLink listPage">
+                        <div class="dropdown">
+                            <a  href="html/list.html" class="dropBtn">LIST</a>
+                            <div class="dropdownContent">
+                              <a class="dropdownLink" href="#">Link 1</a>
+                              <a class="dropdownLink" href="#">Link 2</a>
+                              <a class="dropdownLink" href="#">Link 3</a>
+                            </div>
+                          </div>
+                    </li>
+                    
                 </ul>
             </div>
             <i class="fa fa-bars barMenu"></i>
@@ -64,7 +69,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
             <a href="index.html">ABOUT US</a>
             <a href="index.html">CONTACT US</a>
             <a href="index.html">MANGA</a>
-            <a href="index.html" >LIST</a>
+            <a href="html/list.html" >LIST</a>
             
         </div>
         <div class="contact">
