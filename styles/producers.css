@@ -1,0 +1,20 @@
+.list{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    grid-row-gap: 6vh;
+}
+.btn{
+    margin-left: 0;
+    margin-top: 3%;
+}
+.producer {
+    align-items: left;
+}
+.producerName {
+    font-size: 1.3em;
+}
