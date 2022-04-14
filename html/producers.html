@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/3ea21d8be6.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&family=Mulish:wght@200;300;400&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body class="container" >
+    <header class="header">
+        <img src="images/myanimelist-logo.webp" alt="">
+        <nav class="navBar">
+           <a href="index.html">  </a>
+            <div class="navLinks">
+               <i class="fa fa-times closeBarMenu"></i>
+                <ul class="unList">
+                    <li class="navLink homePage"><a href="">HOME</a></li>
+                    <li class="navLink aboutpage"><a href="">ABOUT US</a></li>
+                    <li class="navLink contactPage"><a href="">CONTACT US</a></li>
+                    <li class="navLink mangaPage"><a href="index.html">MANGA</a></li>
+                    <li class="navLink listPage">
+                        <div class="dropdown">
+                            <a  href="html/list.html" class="dropBtn">LIST</a>
+                            <div class="dropdownContent">
+                              <a class="dropdownLink" href="#">Link 1</a>
+                              <a class="dropdownLink" href="#">Link 2</a>
+                              <a class="dropdownLink" href="#">Link 3</a>
+                            </div>
+                          </div>
+                    </li>
+                    
+                </ul>
+            </div>
+            <i class="fa fa-bars barMenu"></i>
+        </nav>
+    </header>
+    
+    <footer>
+        <div class="logo">
+            <p>MY ANIME LIST</p>
+          </div>
+        <div class="links">
+            <a href="index.html">HOME</a>
+            <a href="index.html">ABOUT US</a>
+            <a href="index.html">CONTACT US</a>
+            <a href="index.html">MANGA</a>
+            <a href="html/list.html" >LIST</a>
+            
+        </div>
+        <div class="contact">
+            <i class="fa-brands fa-instagram fa-xl"></i>
+            <i class="fa-brands fa-facebook fa-xl"></i>
+            <i class="fa-brands fa-twitter fa-xl" ></i>
+            <i class="fa-brands fa-pinterest fa-xl"></i>
+        </div>
+    </footer>
+
+    <div class="modalContainer hide">
+        <button class="closeModal"><i class="fa-solid fa-xmark fa-close fa-2xl"></i></button>
+        <div class="modalWindow"></div>
+    </div>
+<script src="src/script.js"></script>
+</body>
+</html>
