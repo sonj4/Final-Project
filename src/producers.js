@@ -21,7 +21,14 @@ async function producersList(){
     });
     let uniqueProducers = [...new Set(producers)];
     console.log(uniqueProducers);
-    let list = document.querySelector('.producers');
-    
+    let list = document.querySelector('.list');
+
+    uniqueProducers.forEach(el => {
+        let div = document.createElement('div');
+        let p1 = document.createElement('p');
+        p1.innerHTML = `Name: ${el}`;
+        div.appendChild(p1);
+        list.appendChild(div);
+    });
     
 }
