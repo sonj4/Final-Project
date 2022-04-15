@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', producersList);
 
-const modal = document.querySelector('.modalContainer');
-const closeModalButton = document.querySelector('.closeModal');
+const popup = document.querySelector('.modalContainer');
+const closePopupButton = document.querySelector('.closeModal');
 
-closeModalButton.addEventListener('click',closeModalWindow);
+closePopupButton.addEventListener('click',closePopupWindow);
 
 async function getData(url){
     try {
@@ -28,71 +28,58 @@ async function producersList(){
     //console.log(uniqueProducers);
     let list = document.querySelector('.producers');
 
-    uniqueProducers.forEach(el => {
+    uniqueProducers.forEach(producer => {
         let div = document.createElement('div');
         let p = document.createElement('p');
         let loadMore = document.createElement('button');
         loadMore.innerHTML = `See more`;
         loadMore.classList.add('btn');
-        loadMore.addEventListener('click', about)
+        loadMore.classList.add('readMore');
+        loadMore.addEventListener('click', about);
+        all.forEach(el => {
+            el.producers.forEach(prod => {
+                if (producer === prod.name){
+                    loadMore.prop = {name: prod.name, type: prod.type,more: prod.url};
+                }
+            });
+            
+        });
         div.classList.add('producer');
-        p.innerHTML = el;
+        p.innerHTML = producer;
         p.classList.add('producerName');
         div.appendChild(p);
         div.appendChild(loadMore);
         list.appendChild(div);
         
     });
-    //console.log(producers[0].producers);
-    /*console.log(topRated)
-    topRated = topRated.data;
-    let grid = document.querySelector('.grid');
-    let counter = 0;
-    let limit = 5;
-    topRated.forEach(el => {
-        let div = document.createElement('div');
-        div.classList.add('gridElement');
-        let img = document.createElement('img');
-        img.setAttribute('src',el.images.jpg.image_url);
-        img.addEventListener('click', gridImageModal)
-        img.id = el.mal_id;
-        let div1 = document.createElement('div');
-        div1.classList.add('infoWrapper');
-        let p1 = document.createElement('p');
-        p1.innerHTML = `Title: ${el.title}`
-        let p2 = document.createElement('p');
-        p2.innerHTML = `Type: ${el.type}`
-        let p3 = document.createElement('p');
-        p3.innerHTML = `Score: ${el.score}`
-        div1.appendChild(p1);
-        div1.appendChild(p2);
-        div1.appendChild(p3);
-        div.appendChild(img);
-        div.appendChild(div1);
-        grid.appendChild(div);
-        if (counter > limit) div.classList.add('hide')
-        counter++;
-    })*/
 }
 
-function showModalWindow(){
-    modal.classList.remove('hide');
+function showPopupWindow(){
+    popup.classList.remove('hide');
     document.querySelector('.container').setAttribute('scroll','no');
     document.querySelector('.container').style.overflow = 'hidden';
 }
 
 function about(e){
-
+    let name = e.currentTarget.prop.name;
+    let type = e.currentTarget.prop.type;
+    let url = e.currentTarget.prop.url;
     let div = document.querySelector('.modalWindow');
-    div.innerHTML += `<p class="title">Title</p>
+    div.innerHTML += `<h3 class = "modalWindowTitle">Name:</h3> <p class="modalWindowText">${name}</p>
+    <h3 class = "modalWindowTitle">Type:</h3> <p class="modalWindowText">${type}</p>
+    <h3 class = "modalWindowTitle">More:</h3> <p class="modalWindowText">${url}</p>
                     `
-    showModalWindow();
+    showPopupWindow();
 }
 
-function closeModalWindow(){
+function closePopupWindow(){
     let div = document.querySelector('.modalWindow');
     div.innerHTML = '';
-    modal.classList.add('hide');
+    popup.classList.add('hide');
     document.querySelector('.container').removeAttribute('scroll','no');
     document.querySelector('.container').style.overflow = '';
 }
+
+/*let str = "Hello \world";
+str = str.replace(/[{\}]/g, '');
+console.log(str);*/

@@ -18,3 +18,14 @@
 .producerName {
     font-size: 1.3em;
 }
+.modalWindow {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.modalWindowTitle {
+    justify-self: end;
+
+}
+.modalWindowText {
+    font-size: 1.4em;
+}
