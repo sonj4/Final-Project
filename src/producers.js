@@ -39,7 +39,7 @@ async function producersList(){
         all.forEach(el => {
             el.producers.forEach(prod => {
                 if (producer === prod.name){
-                    loadMore.prop = {name: prod.name, type: prod.type,more: prod.url};
+                    loadMore.prop = {name: prod.name, type: prod.type, more: prod.url};
                 }
             });
             
@@ -63,11 +63,11 @@ function showPopupWindow(){
 function about(e){
     let name = e.currentTarget.prop.name;
     let type = e.currentTarget.prop.type;
-    let url = e.currentTarget.prop.url;
+    let url = e.currentTarget.prop.more;
     let div = document.querySelector('.modalWindow');
     div.innerHTML += `<h3 class = "modalWindowTitle">Name:</h3> <p class="modalWindowText">${name}</p>
     <h3 class = "modalWindowTitle">Type:</h3> <p class="modalWindowText">${type}</p>
-    <h3 class = "modalWindowTitle">More:</h3> <p class="modalWindowText">${url}</p>
+    <a href="${url}" class = "seeMoreLink">See more</a></p>
                     `
     showPopupWindow();
 }

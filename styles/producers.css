@@ -21,6 +21,10 @@
 .modalWindow {
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    grid-template-areas:
+    	'title text'
+    	'title text'
+        'more more';
 }
 .modalWindowTitle {
     justify-self: end;
@@ -28,4 +32,8 @@
 }
 .modalWindowText {
     font-size: 1.4em;
+}
+.seeMoreLink {
+    grid-area: more;
+    justify-self: center;
 }
