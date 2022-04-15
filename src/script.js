@@ -45,7 +45,7 @@ function dropdownMenu(){
 function dropdownMenuHide(){
     let menu =  document.querySelector('.dropdownContent');
     menu.style.display = 'none';
-    console.log('izasla')
+    console.log('out')
 }
 
 
@@ -59,8 +59,8 @@ function handleKeyboardNav(e) {
 function bindKeyDownListener() {
     isOnDiv = true;
     if (isOnDiv) document.addEventListener("keydown", handleKeyboardNav);
-     if (document.attachEvent)
-        el.attachEvent("onkeydown", handleKeyboardNav); 
+    /*  if (document.attachEvent)
+        el.attachEvent("onkeydown", handleKeyboardNav);  */
 }
 
 function bindKeyDownListenerBlock(){
