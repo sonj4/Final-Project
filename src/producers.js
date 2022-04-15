@@ -77,8 +77,8 @@ function about(e){
     let div = document.querySelector('.modalWindow');
     div.innerHTML += `<h3 class = "modalWindowTitle">Name:</h3> <p class="modalWindowText">${name}</p>
     <h3 class = "modalWindowTitle">Type:</h3> <p class="modalWindowText">${type}</p>
-    <h3 class = "modalWindowTitle">Animes produced:</h3> <ul class="modalWindowText">${animesStr}</ul>
-    <a href="${url}" class = "seeMoreLink">See more</a></p>
+    <h3 class = "modalWindowTitle">Animes produced:</h3> <ul class="modalWindowList">${animesStr}</ul>
+    <a href="${url}" class = "seeMoreLink"><button class = "btn readMore">See more</button></a></p>
                     `
     showPopupWindow();
 }

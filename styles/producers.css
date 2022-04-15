@@ -24,17 +24,24 @@
     grid-template-areas:
     	'title text'
     	'title text'
-        'title ul'
+        'title text'
         'more more';
+    column-gap: 2rem;
+    row-gap: 2rem;
 }
 .modalWindowTitle {
     justify-self: end;
 
 }
 .modalWindowText {
-    font-size: 1.4em;
+    font-size: 1.3em;
+    margin-left: 0;
 }
 .seeMoreLink {
     grid-area: more;
     justify-self: center;
+}
+.modalWindowList {
+    font-size: 1.1em;
+    margin-left: 3%;
 }
