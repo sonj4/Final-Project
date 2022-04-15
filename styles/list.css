@@ -404,14 +404,13 @@ nav .fa{
     margin-top: 4rem;
     margin-bottom: 8rem;
     justify-items: center;
-    height: 50vh;
 }
 
 .gridElement {
-    border: 1px solid black;
     display: flex;
     margin: 1rem;
     padding: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .gridElement img {
@@ -427,6 +426,10 @@ nav .fa{
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
+}
+
+.infoWrapper p {
+    font-size: 1.3rem;
 }
 
 .mainControls{
@@ -461,6 +464,10 @@ footer {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.links > a {
+    text-decoration: none;
 }
 
 .contact {
@@ -504,4 +511,12 @@ footer {
 .activePage{
     text-shadow: 0px 2px 8px #ffffff;
     border-bottom: 2px solid white;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
