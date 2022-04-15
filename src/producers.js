@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', producersList);
 
+const modal = document.querySelector('.modalContainer');
+const closeModalButton = document.querySelector('.closeModal');
+
+closeModalButton.addEventListener('click',closeModalWindow);
+
 async function getData(url){
     try {
         let res = await fetch(url);
@@ -20,15 +25,16 @@ async function producersList(){
         
     });
     let uniqueProducers = [...new Set(producers)];
-    console.log(uniqueProducers);
-    let list = document.querySelector('.list');
+    //console.log(uniqueProducers);
+    let list = document.querySelector('.producers');
 
     uniqueProducers.forEach(el => {
         let div = document.createElement('div');
         let p = document.createElement('p');
         let loadMore = document.createElement('button');
-        loadMore.innerHTML = `About`;
+        loadMore.innerHTML = `See more`;
         loadMore.classList.add('btn');
+        loadMore.addEventListener('click', about)
         div.classList.add('producer');
         p.innerHTML = el;
         p.classList.add('producerName');
@@ -67,4 +73,26 @@ async function producersList(){
         if (counter > limit) div.classList.add('hide')
         counter++;
     })*/
+}
+
+function showModalWindow(){
+    modal.classList.remove('hide');
+    document.querySelector('.container').setAttribute('scroll','no');
+    document.querySelector('.container').style.overflow = 'hidden';
+}
+
+function about(e){
+
+    let div = document.querySelector('.modalWindow');
+    div.innerHTML += `<p class="title">Title</p>
+                    `
+    showModalWindow();
+}
+
+function closeModalWindow(){
+    let div = document.querySelector('.modalWindow');
+    div.innerHTML = '';
+    modal.classList.add('hide');
+    document.querySelector('.container').removeAttribute('scroll','no');
+    document.querySelector('.container').style.overflow = '';
 }
