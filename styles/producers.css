@@ -24,6 +24,7 @@
     grid-template-areas:
     	'title text'
     	'title text'
+        'title ul'
         'more more';
 }
 .modalWindowTitle {

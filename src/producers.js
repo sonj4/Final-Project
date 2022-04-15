@@ -36,14 +36,18 @@ async function producersList(){
         loadMore.classList.add('btn');
         loadMore.classList.add('readMore');
         loadMore.addEventListener('click', about);
+        let animesProduced = [];
         all.forEach(el => {
             el.producers.forEach(prod => {
                 if (producer === prod.name){
+                    animesProduced.push(el.title);
                     loadMore.prop = {name: prod.name, type: prod.type, more: prod.url};
                 }
             });
-            
         });
+        //console.log(producer + ':  ' + animesProduced);
+        loadMore.prop.animes = animesProduced;
+
         div.classList.add('producer');
         p.innerHTML = producer;
         p.classList.add('producerName');
@@ -64,9 +68,16 @@ function about(e){
     let name = e.currentTarget.prop.name;
     let type = e.currentTarget.prop.type;
     let url = e.currentTarget.prop.more;
+    let animes = e.currentTarget.prop.animes;
+    let animesStr = "";
+    animes.forEach(el => {
+        animesStr += "<li>" + el + "</li>";
+    });
+
     let div = document.querySelector('.modalWindow');
     div.innerHTML += `<h3 class = "modalWindowTitle">Name:</h3> <p class="modalWindowText">${name}</p>
     <h3 class = "modalWindowTitle">Type:</h3> <p class="modalWindowText">${type}</p>
+    <h3 class = "modalWindowTitle">Animes produced:</h3> <ul class="modalWindowText">${animesStr}</ul>
     <a href="${url}" class = "seeMoreLink">See more</a></p>
                     `
     showPopupWindow();
@@ -79,7 +90,3 @@ function closePopupWindow(){
     document.querySelector('.container').removeAttribute('scroll','no');
     document.querySelector('.container').style.overflow = '';
 }
-
-/*let str = "Hello \world";
-str = str.replace(/[{\}]/g, '');
-console.log(str);*/
