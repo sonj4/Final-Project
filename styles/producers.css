@@ -45,3 +45,42 @@
     font-size: 1.1em;
     margin-left: 3%;
 }
+@media(max-width: 768px){
+    .producers{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+        width: 100%;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        grid-row-gap: 6vh;
+        justify-self: center;
+    }
+}
+@media(max-width: 430px){
+    .producers{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 2rem;
+        width: 100%;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        grid-row-gap: 6vh;
+        justify-self: center;
+    }
+    .modalWindow {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas:
+            'title text'
+            'title text'
+            'title text'
+            'more more';
+        column-gap: 2rem;
+        row-gap: 1rem;
+    }
+    .modalWindowList {
+        font-size: 1em;
+        margin-left: 3%;
+    }
+}
