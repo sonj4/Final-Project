@@ -1,0 +1,81 @@
+.aboutUs {
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.aboutUsTitle {
+    font-size: 3rem;
+    color: rgb(23, 29, 88);
+}
+.aboutUsText {
+    font-size: 1.5rem;
+}
+.madeBy {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+            'title title'
+            'sonja obren';
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.madeByTitle {
+    grid-area: title;
+    font-size: 3rem;
+    color: rgb(23, 29, 88);
+}
+.obren, .sonja {
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 1px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    color:rgb(27, 27, 68);
+    fill: currentcolor;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: left;
+    overflow: visible;
+    width: auto;
+    padding: 3%;
+    height: 100%;
+  }
+  .key {
+    font-weight: 700;
+}
+@media(max-width: 768px){
+    .obren, .sonja{
+        font-size: 1.1rem;
+    }
+    .madeBy {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 7%;
+    }
+}
+@media(max-width: 425px){
+    .obren, .sonja{
+        font-size: 1.1rem;
+    }
+    .madeBy {
+        margin-left: 5%;
+        margin-right: 5%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            'title'
+            'sonja'
+            'obren';
+        margin-bottom: 13%;
+    }
+    .aboutUsText {
+        font-size: 1.2rem;
+    }
+}
