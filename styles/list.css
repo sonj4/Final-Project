@@ -201,7 +201,7 @@ nav .fa{
 
 .inputSearch:focus {
     outline: 2px solid gray; 
-    width: 100%;
+    width: 50%;
 }
 
 
