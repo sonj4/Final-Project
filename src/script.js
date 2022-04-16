@@ -83,10 +83,9 @@ async function sidebarLoad(){
         const img = document.createElement('img');
         img.setAttribute('src',data[i].images.jpg.image_url);
         img.addEventListener('click',modalSidebar)
-        let aboutText = data[i].about;
-        img.prop = {name: data[i].name, name_kanji: data[i].name_kanji, about: data[i].about, image: data[i].images.jpg.image_url}
+        let aboutText = (data[i].about).slice(0, 500) + '...';
+        img.prop = {name: data[i].name, name_kanji: data[i].name_kanji, about: aboutText, image: data[i].images.jpg.image_url}
         const p = document.createElement('p');
-        //p.innerHTML = data[i].name; dont like it
         div.appendChild(img);
         div.appendChild(p);
         bestSidebar.appendChild(div);
@@ -171,7 +170,7 @@ async function gridImageModal(e){
     let anime = await getData(`https://api.jikan.moe/v4/anime/${id}`)
     anime = anime.data;
     let title = anime.title_japanese;
-    let synopsis = anime.synopsis;
+    let synopsis = anime.synopsis.slice(0,200) + '...';
     let img = anime.images.jpg.image_url;
     let div = document.querySelector('.modalWindow');
     div.innerHTML += `<p class="title">${title}</p>

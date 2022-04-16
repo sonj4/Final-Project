@@ -6,26 +6,207 @@ document.querySelector('.closeBarMenu').addEventListener('click', hideMenu);
 const navLinks = document.querySelector(".navLinks");
 const inputSearch = document.querySelector('.inputSearch');
 const manga = document.querySelector('.mangaLink');
-manga.temp = 0;
+let clickedLink = 0;
 manga.addEventListener('click', setUpData);
 const anime = document.querySelector('.animeLink');
 anime.addEventListener('click', setUpData);
-anime.temp = 1;
 const people = document.querySelector('.peopleLink');
 people.addEventListener('click', setUpData);
-people.temp = 2;
 
 let clickedNumber = 0;
 let dataArray = null;
 const myRange = document.querySelector('#myRange');
 
 
-inputSearch.addEventListener('keyup', searchFunction);
+//inputSearch.addEventListener('keyup', searchFunction);
 
 
 myRange.addEventListener('input', function(){ showValue(this.value)});
 //myRange.addEventListener('change', function(){ showValue(this.value)});
 
+window.addEventListener("DOMContentLoaded", (e) => {
+    const btn = document.querySelector(".searchBtn");
+    const input = document.querySelector(".inputSearch");
+  
+    btn.addEventListener("click", e => searchFunction3(input.value, clickedLink));
+    //
+});
+
+function searchFunction3(inputText, clickedLink) {
+    let sliceNum = 0; //from which index to slice
+    let checkedInd = 0;
+
+    //which filter is checked
+    if (document.querySelector('#filter1').checked) checkedInd = 0;
+    else if (document.querySelector('#filter2').checked) checkedInd = 1;
+    else if (document.querySelector('#filter3').checked) checkedInd = 2;
+
+    //let text = e.target.value.toString().toLowerCase(); //get search text
+    let text = inputText.toLowerCase();
+    //filtered data
+    let filteredData = [];
+    let arr = document.getElementsByClassName('gridElement');
+    let items = Array.from(arr);
+    let titles = []
+    
+    //IF MANGA DATA IS SEARCHED
+    if (clickedLink == 0) {
+        //IF FILTERING BY TITLE
+        if (checkedInd == 0){
+            sliceNum = 7;
+            filteredData = dataArray.filter(e => e.title.toLowerCase().startsWith(text)); 
+            for (let j = 0; j< items.length; j++){
+                titles.push(items[j].lastChild.children.item(0).innerHTML.slice(sliceNum))
+            }
+
+            refreshData();
+            for (let i = 0; i< filteredData.length; i++) {
+                if (dataArray.includes(filteredData[i])) {
+                    let ind = titles.indexOf(filteredData[i].title);
+                    arr[ind].classList.remove('hide');
+                }
+            }
+
+        }
+         
+        ////IF FILTERING BY AUTHOR NAME
+        else if (checkedInd == 1) {
+            sliceNum = 8;
+            filteredData = dataArray.filter(e => e.authors[0].name.toLowerCase().startsWith(text)); 
+            for (let j = 0; j< items.length; j++){
+                titles.push(items[j].lastChild.children.item(1).innerHTML.slice(sliceNum))
+            }
+            refreshData();
+            for (let i = 0; i< filteredData.length; i++) {
+                if (dataArray.includes(filteredData[i])) {
+                    let ind = titles.indexOf(filteredData[i].authors[0].name);
+                    arr[ind].classList.remove('hide');
+                }
+            }
+        }
+        //IF FILTERING BY NUMBER OF CHAPTERS
+        else if (checkedInd == 2) {
+            sliceNum = 17;
+            filteredData = dataArray.filter(e => {
+                    return ((e.chapters != null) && e.chapters.toString().startsWith(text));
+                }
+            ); 
+            for (let j = 0; j < items.length; j++){
+                titles.push(items[j].lastChild.children.item(2).innerHTML.slice(sliceNum))
+            }
+            refreshData();
+            for (let i = 0; i< filteredData.length; i++) {
+                if (dataArray.includes(filteredData[i])) {
+                    let ind = titles.indexOf(filteredData[i].chapters.toString());
+                    arr[ind].classList.remove('hide');
+                }
+            }
+        }  
+    
+    }
+    //IF ANIME DATA IS SEARCHED
+    else if (clickedLink == 1) {
+        //IF FILTERING BY TITLE
+        if (checkedInd == 0){
+            sliceNum = 7;
+            filteredData = dataArray.filter(e => e.title.toLowerCase().startsWith(text)); 
+            for (let j = 0; j< items.length; j++){
+                titles.push(items[j].lastChild.children.item(0).innerHTML.slice(sliceNum))
+            }
+            refreshData();
+            for (let i = 0; i< filteredData.length; i++) {
+                if (dataArray.includes(filteredData[i])) {
+                    let ind = titles.indexOf(filteredData[i].title);
+                    arr[ind].classList.remove('hide');
+                }
+            }
+        }
+        //IF FILTERING BY TYPE
+        else if (checkedInd == 2) {
+            sliceNum = 5;
+            filteredData = dataArray.filter(e => e.type.toLowerCase().startsWith(text)); 
+            for (let j = 0; j< items.length; j++){
+                titles.push(items[j].lastChild.children.item(1).innerHTML.slice(sliceNum))
+            }
+            refreshData();
+            for (let j = 0; j< titles.length; j++) {
+                titles[j] = titles[j].replace(/\s+/, "");
+            }
+            console.log(titles)
+            let indArray = [];
+            for (let i = 0; i<filteredData.length; i++) {
+                let ind = titles.indexOf(filteredData[i].type);
+                while (indArray.includes(ind)) {
+                    ind = titles.indexOf(filteredData[i].type,ind+1);
+                }
+                indArray.push(ind)
+                arr[ind].classList.remove('hide');
+            }
+            for (let k = 0; k<indArray.length; k++){
+                arr[indArray[k]].classList.remove('hide');
+            }
+        }
+        //IF FILTERING BY GENRES
+        else if (checkedInd == 1) {
+            sliceNum = 8;
+            filteredData = dataArray.filter(e => {
+                    for (let i = 0; i< e.genres.length; i++) {
+                        return (e.genres[i].name.toLowerCase().startsWith(text))
+                    }
+                    //return (e.genres[0].name.toLowerCase().startsWith(text));
+                }
+            ); 
+            for (let j = 0; j < items.length; j++){
+                titles.push(items[j].lastChild.children.item(2).innerHTML.slice(sliceNum))
+            }
+            console.log(titles)
+            refreshData();
+            console.log(filteredData)
+            let main = document.querySelector('.main');
+            for (let i = 0; i<filteredData.length; i++) {
+                main.innerHTML += `<div class='gridElement'> 
+                        <img src='${filteredData[i].images.jpg.image_url}'> 
+                        <div class='infoWrapper'> 
+                        <p>Title: ${filteredData[i].title} </p> 
+                        <p>Type: ${filteredData[i].type}</p>
+                        <p>Genres: ${filteredData[i].genres[0].name}, ${filteredData[i].genres[1].name}</p> 
+                        <p>Score: ${filteredData[i].score}</p>
+                        </div> </div>`;
+            }
+            
+            
+        } 
+    }
+    //IF PEOPLE DATA IS FILTERED, FILTERING BY ONLY NAME FILTER
+    else if (clickedLink == 2) {
+        sliceNum = 7;
+            filteredData = dataArray.filter(e => e.name.toLowerCase().startsWith(text)); 
+            for (let j = 0; j< items.length; j++){
+                titles.push(items[j].lastChild.children.item(0).innerHTML.slice(sliceNum))
+            }
+            refreshData();
+            for (let i = 0; i< filteredData.length; i++) {
+                if (dataArray.includes(filteredData[i])) {
+                    let ind = titles.indexOf(filteredData[i].title);
+                    arr[ind].classList.remove('hide');
+                }
+            }
+    }
+    
+    /* refreshData();
+
+    console.log(filteredData)
+    console.log(titles)
+    for (let i = 0; i< filteredData.length; i++) {
+        if (dataArray.includes(filteredData[i])) {
+            let ind;
+            if (checkedInd == 0) ind = titles.indexOf(filteredData[i].title)
+            else if (checkedInd == 1) ind = titles.indexOf(filteredData[i].authors[0].name)
+            else if (checkedInd == 2) ind = titles.indexOf(filteredData[i].chapters.toString())
+            arr[ind].classList.remove('hide');
+        }
+    } */
+}
 
 function showValue(value){
     console.log(value)
@@ -64,13 +245,12 @@ async function setUpData(e){
     if (clickedNumber > 1) refreshData();
     let data = null;
     let temp;
-    if (e.target.classList.contains('mangaLink')){ data = await getData('https://api.jikan.moe/v4/top/manga'); temp = 0} 
-    else if (e.target.classList.contains('animeLink')){ data = await getData('https://api.jikan.moe/v4/top/anime'); temp = 1}
-    else if (e.target.classList.contains('peopleLink')){ data = await getData('https://api.jikan.moe/v4/top/people'); temp = 2}
+    if (e.target.classList.contains('mangaLink')){ data = await getData('https://api.jikan.moe/v4/top/manga'); temp = 0; clickedLink = 0} 
+    else if (e.target.classList.contains('animeLink')){ data = await getData('https://api.jikan.moe/v4/top/anime'); temp = 1; clickedLink = 1}
+    else if (e.target.classList.contains('peopleLink')){ data = await getData('https://api.jikan.moe/v4/top/people'); temp = 2; clickedLink = 2}
     updateFilters(temp);
     dataArray = data.data;
     showData(dataArray, temp);
-    
 }
 
 function showData(arr, temp){
@@ -80,7 +260,6 @@ function showData(arr, temp){
     
     let main = document.querySelector('.main');
     for (let i = 0; i<arr.length; i++){
-        //console.log(arr[i].title)
         let div = document.createElement('div');
         div.classList.add('gridElement');
         let img = document.createElement('img');

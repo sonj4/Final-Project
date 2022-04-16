@@ -29,6 +29,7 @@
     overflow-x: hidden;
 }
 
+/* /////////////HEADER/////////////////// */
 .header {
     height: 25vh; 
     width: 100%; 
@@ -193,6 +194,8 @@ nav .fa{
     background-color: rgba(224, 224, 224, 0.7);
 }
 
+/* ////////////////////SLIDER//////////////////////////// */
+
 .slider{
     display: flex;
     align-items: center;
@@ -289,6 +292,7 @@ nav .fa{
     }
 }
 
+/* //////////////////////////////SIDEBAR////////////////////////////// */
 
 .bestSidebar{
     margin: 3rem;
@@ -323,6 +327,12 @@ nav .fa{
     cursor: pointer;
     transition: 0.3s;
 }
+
+.firstBest img:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
 .main {
     display: grid;
     grid-template-columns: 80vw 20vw;
@@ -335,9 +345,6 @@ nav .fa{
 }
 
 
-.firstBest img:hover{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
 
 @media (max-width: 1140px) {
     .main{
@@ -532,7 +539,7 @@ footer {
     justify-content: space-evenly;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px gray;
-    width: 800px;
+    width: 50%;
     height: auto;
     max-height: 90vh;
     max-width: 100%;
@@ -540,22 +547,44 @@ footer {
     overflow: hidden;
 }
 .modalWindow p {
+    font-size: 1.4rem;
     padding: 10px;
 
 }
 
 
 
-/* 
-.modalWindow img{
 
+@media (max-width: 1140px) and (min-width: 768px) {
+    .modalWindow img{
+        width: 100px;
+        height: auto;
+    }
+    .modalWindow p {
+        font-size: 0.8rem;
+        padding: 10px;
+    
+    }
 }
- */
+
+
+@media (max-width: 768px) {
+    .modalWindow img{
+        width: 100px;
+        height: auto;
+    }
+    .modalWindow p {
+        font-size: 0.7rem;
+        padding: 10px;
+    
+    }
+}
+
 .fa-close{
     position: fixed;
     top: 50px;
     right: 50px;
-    color: white;
+    color: rgb(182 2 53);
 }
 
 
